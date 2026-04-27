@@ -18,7 +18,8 @@ public class SpawnManager : MonoBehaviour
     {
         int animalIndex = Random.Range(0, animalPrefabs.Length);
         Vector3 spawnPos = new Vector3(Random.Range(-spawnRangeX, spawnRangeX), 0, spawnPosZ);
+        Quaternion spawnRotation = animalPrefabs[animalIndex].transform.rotation * Quaternion.Euler(0, 180, 0);
 
-        Instantiate(animalPrefabs[animalIndex], spawnPos, animalPrefabs[animalIndex].transform.rotation);
+        Instantiate(animalPrefabs[animalIndex], spawnPos, spawnRotation);
     }
 }
